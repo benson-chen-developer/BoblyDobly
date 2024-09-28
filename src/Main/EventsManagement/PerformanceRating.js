@@ -12,8 +12,8 @@ const data = [
 export const Star = ({ filled }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="20px"
-    height="20px"
+    width="15px"
+    height="15px"
     viewBox="0 0 24 24"
     style={{ fill: filled ? '#506FD9' : 'none', stroke: '#506FD9', strokeWidth: '1'}}
   >
@@ -43,17 +43,22 @@ export const PerformanceRating = () => {
           {data.map((item, index) => (
             <tr
               key={index}
-              style={{borderBottom: index !== data.length - 1 ? '1px solid #F2F5F9' : 'none',}}
+              style={{
+                width:'100%', height:'35px', display:'flex', alignItems:'center',
+                borderBottom: index !== data.length - 1 ? '1px solid #F2F5F9' : 'none',
+              }}
             >
               <td style={{ padding: '10px' }}>
                 <b>{item.rating}</b>
               </td>
-              <td style={{ width: '65%', display: 'flex', alignItems: 'center', height: '10px', marginTop: '5px' }}>
+              <td style={{ 
+                width: '65%', display: 'flex', alignItems: 'center', height: '10px', marginTop: '5px' 
+              }}>
                 {Array.from({ length: 5 }, (_, starIndex) => (
                   <Star key={starIndex} filled={starIndex < item.rating} />
                 ))}
               </td>
-              <td style={{ padding: '10px' }}>
+              <td style={{ padding: '10px', marginRight:'auto' }}>
                 <b>{item.count}</b>
               </td>
               <td style={{ padding: '10px' }}>
